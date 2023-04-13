@@ -69,7 +69,7 @@ def index(request):
     fig_left.add_trace(
                 go.Scatter(x=data['Date'], y=data['JPM']['Adj Close'], name="JPM")
             )
-    fig_left.update_layout(template='plotly_dark')
+    fig_left.update_layout(template='plotly_dark', paper_bgcolor="#14151b", plot_bgcolor="#14151b", font_color="white")
 
     plot_div_left = plot(fig_left, auto_open=False, output_type='div')
 

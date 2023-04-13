@@ -109,29 +109,27 @@
                     <div class="" style="display: flex; flex-direction: row; justify-content: center; flex-wrap: wrap;">
                         {% for i in news %}
                         <div class="bg-secondary rounded p-4 p-sm-5 my-4 mx-3" style="width: 40%">
-                            <div class="form-floating mb-3">
-                                <!-- <input type="text" class="form-control" id="tickerinp" placeholder="Ticker Name" name="ticker" autocomplete="on" required> -->
-                                <!-- <label for="tickerinp">Company Ticker Name</label> -->
-                                {{i.title}}
+                            <div class="card bg-dark text-white">
+                                <!-- {% for im in news.thumbnail %} -->
+                                <!-- <img class="" style="width: 20px; height: 10px" src="	https://149695847.v2.pressablecdn.com/wp-content/uploads/2020/07/2020-07-22.jpg" alt="Card image"> -->
+                                <!-- {% endfor %} -->
+                                <!-- <div class="card-img-overlay"> -->
+                                    <!-- <p>{{i.thumbnail.resolutions.url}}</p> -->
+                                  <h5 class="card-title">{{i.title}}</h5>
+                                  <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+                                  <p class="card-text">Published By- {{i.publisher}}</p>
+                                  <img src={{i.thumbnail.resolutions.0.url}}>
+                                  <p>Related tickers: {{i.relatedTickers}}</p>
+                                  <a href={{i.link}}>Read More...</a>
+                                  <!-- <p>res: {{i.thumbnail.resolutions}} </p> -->
+                                  <!-- { % for j in i.thumbnail.resolutions.0 %} -->
+                                    <!-- <img src={{i.thumbnail.resolutions.0.url}}> -->
+                                    <!-- <p> {{i.thumbnail.resolutions.0.url}} </p> -->
+                                  <!-- { % endfor % } -->
+                                  <!-- <p>url: {{ i.thumbnail.resolutions.0 }} </p> -->
+                                  <!-- <img src="https://s.yimg.com/uu/api/res/1.2/3Fxu7aeRraTQL44R3OSW2w--~B/aD0yMDA7dz00MDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/prnewswire.com/184bc20020ffb70f6e228c9b31f743d2">  -->
+                                <!-- </div> -->
                             </div>
-                            <div class="form-floating mb-4">
-                                <!-- <input type="text" class="form-control" id="days" placeholder="Number of days" name="days" autocomplete="on" required> -->
-                                <label for="days">{{i.publisher}}</label>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <a href="../ticker">Search Ticker Value</a>
-                            </div>
-                            <button type="submit" class="btn btn-primary py-3 w-100 mb-4" onclick="LoadURL()">Get News</button>
-                            <script type="text/javascript">
-                                function LoadURL() {
-                                    var ticker = document.getElementById("tickerinp").value;
-                                    // var days = document.getElementById("days").value;
-                                    var server = window.location.origin;
-                                    var path = "/News/" + ticker;
-                                    var url = server + path;
-                                    window.location.href = url;
-                                }
-                            </script>
                         </div>
                         {% endfor %}
                     </div>
@@ -176,6 +174,9 @@
 
     <!-- Template Javascript -->
     <script src="{% static 'js/main.js' %}"></script>
+    <script>
+        // i.thumbnail.resolutions
+    </script>
 </body>
 
 </html>

@@ -106,6 +106,7 @@
                         <h6 class="mb-0">All Tickers</h6>
                         <a href="https://finance.yahoo.com/trending-tickers">Show All</a>
                     </div>
+                    <input id="searchbarticker" onkeyup="search_ticker()" type="text" name="search" placeholder="Search Company Ticker..">
                     <div class="table-responsive">
                         <table class="table text-start align-middle table-bordered table-hover mb-0">
                             <thead>
@@ -118,8 +119,8 @@
                                 {% if ticker_list %}
                                 {% for i in ticker_list %}
                                 <tr>
-                                    <td>{{i.Symbol}}</td>
-                                    <td>{{i.Name}}</td>
+                                    <td class ="tickers">{{i.Symbol}}</td>
+                                    <td class = "ticker" >{{i.Name}}</td>
                                 </tr>
                                 {% endfor %}
                                 {% endif %}
@@ -167,6 +168,23 @@
 
     <!-- Template Javascript -->
     <script src="{% static 'js/main.js' %}"></script>
+    <script>
+        function search_ticker() {
+            let input = document.getElementById('searchbarticker').value
+            input=input.toLowerCase();
+            let x = document.getElementsByClassName('ticker');
+
+            for (i = 0; i < x.length; i++) { 
+                if (!x[i].innerHTML.toLowerCase().includes(input)) {
+                    x[i].style.display="none";
+                    x[i].parentElement.style.display="none";
+                }
+                else {
+                    x[i].style.display="list-item";                 
+                }
+            }
+        }
+    </script>
 </body>
 
 </html>
